@@ -14,29 +14,29 @@ function SearchBar() {
 
     function handleSearch() { // ! call when user clicks search button
       setCompareCountry(null)
-      fetch(`http://127.0.0.1:5000/country/${query}`) // ! Fetch the country with (query) as input for name in the app.py route @("/country/<name>") then send the response down.
+      fetch(`${process.env.REACT_APP_API_URL}/country/${query}`) // ! Fetch the country with (query) as input for name in the app.py route @("/country/<name>") then send the response down.
          .then(response => response.json()) // * wait for it to happen, recieve it, THEN name it response and convert it to json
          .then(data => setCountryData(data) ) // * THEN recieve the json and name it data, then set the country data (it being null) to the data we got back from the backend.
       }
 
      function handleCompare() { // ! call when clicks compare button
-      fetch(`http://127.0.0.1:5000/country/${query}/${query2}`) // ! Fetch the response return from app.py's route @(/country/<name>/<name2>) then send the rsponse down
+      fetch(`REACT_APP_API_URL/country/${query}/${query2}`) // ! Fetch the response return from app.py's route @(/country/<name>/<name2>) then send the rsponse down
          .then(response => response.json()) // * wait for it to happen, get it, HTEN name it response and convert it to json like in the previous function send it down 
          .then(data => setCompareCountry(data)) // * recieve it and name it data THEN take its value and give it to the country compare.
 
      }
 
      function handleSave() { // ! call when clicks save button
-      fetch(`http://127.0.0.1:5000/country/save/${query}`) //! send a signal to app.py's route @(/country/save/<name>) with the countries name
+      fetch(`REACT_APP_API_URL/country/save/${query}`) //! send a signal to app.py's route @(/country/save/<name>) with the countries name
          
      }
 
      function handleDeleteList() { // ! call when clicks delete save button
-         fetch(`http://127.0.0.1:5000/delete`)
+         fetch(`REACT_APP_API_URL/delete`)
      }
 
      function handleDeleteCountry() {
-         fetch(`http://127.0.0.1:5000/delete/${deleteCountry}`)
+         fetch(`REACT_APP_API_URL/delete/${deleteCountry}`)
      }
 
 
