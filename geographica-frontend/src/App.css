@@ -1,0 +1,177 @@
+.App {
+  text-align: center;
+  background-color: #879dc9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+.Button {
+  background-color: #1c292d;
+  border: 2px solid;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#search-button {
+  scale: 1.3;
+  position: absolute;
+  top:33px;
+  left: 60%;
+}
+#search-button:hover {
+ background-color: #2d444a;
+}
+
+#save-button {
+  scale: 1.3;
+  position: absolute;
+  top:33px;
+  left: 68.3%;
+  background-color: rgb(30, 70, 30);
+}
+#save-button:hover {
+ background-color: #416b40;
+}
+
+#delete-all-button {
+  background-color: #770505;
+  border: 2x solid black;
+  color: white;
+  scale: 1.3;
+  position: absolute;
+  top:33px;
+  left: 88%;
+}
+#delete-all-button:hover
+{
+ background-color: #ff0101;
+}
+
+#compare-button{
+  scale: 1.3;
+  position: absolute;
+  top:123px;
+  left: 60%; 
+}
+#compare-button:hover{
+  background-color: #2d444a;
+}
+
+#delete-country-button {
+  background-color: rgb(188, 15, 61);
+  border: 2px solid black ;
+  color: white;
+  scale: 1.3;
+  position: absolute;
+  bottom:153px;
+  left: 60.4%;
+}
+#delete-country-button:hover{
+background-color: rgb(255, 0, 68);
+}
+
+#saved-button{
+  background-color: #1a49d6;
+  scale: 1.3;
+  position: absolute;
+  top:123px;
+  left: 88%;
+}
+#saved-button:hover{
+  background-color: #0a6379;
+}
+
+
+
+
+
+
+.Input {
+  padding: 4px;
+  height: 32px;
+  background-color: #efece8;
+  border: 4px solid;
+  color: rgb(131, 17, 17);
+  outline: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+  text-align: center;
+  margin: 5px;
+}
+
+#search_input {
+  scale: 1.3;
+  position: absolute;
+  top:30px;
+  left: 41%;
+  background-color: antiquewhite;
+  border-color: #416b40;
+}
+
+#compare_input {
+  scale: 1.3;
+  position: absolute;
+  top:120px;
+  left: 41%;
+  background-color: antiquewhite;
+  border-color: rgb(131, 115, 95);
+}
+
+#delete_country_input
+{
+  scale: 1.3;
+  position: absolute;
+  bottom:150px;
+  left: 41%;
+  background-color: hwb(7 79% 14%);
+  border-color: hwb(6 9% 31%);
+}
