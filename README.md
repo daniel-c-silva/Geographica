@@ -18,7 +18,7 @@
 
 ## Live Demo
 ```
-[Deployed at: https://geographica.vercel.app](#) (coming soon)
+[https://geographica-brown.vercel.app](https://geographica-brown.vercel.app)
 ```
 
 ## How to Run Locally
