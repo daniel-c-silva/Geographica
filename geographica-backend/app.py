@@ -2,6 +2,7 @@ from flask import Flask, jsonify # * flask for the api
 import requests # * requests for the api
 import sqlite3 # * database
 from flask_cors import CORS # *t his is used so the frontend can acess the backend.
+import os # * used to get the port number from the environement var so it can work on render.com and locally as well.
 
 app = Flask(__name__) # !the app using it to create routes and stuff
 CORS(app) # * this is used so the frontend can acess the backend.
@@ -175,6 +176,6 @@ def delete_country_data(name):
 
 
 if __name__ == "__main__": 
-    app.run(debug = True)  
+   app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False) #! this is used to run the app. host
 
 
