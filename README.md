@@ -17,9 +17,9 @@
 ```
 
 ## Live Demo
-```
+
 [https://geographica-brown.vercel.app](https://geographica-brown.vercel.app)
-```
+
 
 ## How to Run Locally
 
