@@ -4,6 +4,11 @@ import sqlite3 # * database
 from flask_cors import CORS # *t his is used so the frontend can acess the backend.
 import os # * used to get the port number from the environement var so it can work on render.com and locally as well.
 
+# On Render, reset the database
+if os.environ.get("RENDER"):
+    if os.path.exists("countries.db"):
+        os.remove("countries.db")
+
 app = Flask(__name__) # !the app using it to create routes and stuff
 CORS(app) # * this is used so the frontend can acess the backend.
 
@@ -153,25 +158,31 @@ def saved_country_data():
 
 @app.route("/delete")
 def delete_data():
-    conn = sqlite3.connect("countries.db")
-    cursor = conn.cursor()
+    try:
+        conn = sqlite3.connect("countries.db")
+        cursor = conn.cursor()
 
-    cursor.execute('''DELETE FROM countries''')
+        cursor.execute('''DELETE FROM countries''')
   
-    conn.commit()
-    conn.close()
-    return "Save was sucessfully deleted!"
+        conn.commit()
+        conn.close()
+        return "Save was sucessfully deleted!"
+    except Exception as erro:
+            return jsonify ({"error": str(erro)})
 
 @app.route("/delete/<name>")
 def delete_country_data(name):
-    conn = sqlite3.connect("countries.db")
-    cursor = conn.cursor()
+    try: 
+        conn = sqlite3.connect("countries.db")
+        cursor = conn.cursor()
 
-    cursor.execute('''DELETE FROM countries WHERE name = ?''', (name,))
+        cursor.execute('''DELETE FROM countries WHERE name = ?''', (name,))
 
-    conn.commit()
-    conn.close()
-    return "Country save was sucessfully deleted!"
+        conn.commit()
+        conn.close()
+        return "Country save was sucessfully deleted!"
+    except Exception as erro:
+             return jsonify ({"error": str(erro)})
     
 
 
