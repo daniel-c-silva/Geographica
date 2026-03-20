@@ -64,8 +64,9 @@
 #search-button {
   scale: 1.3;
   position: absolute;
+
   top:33px;
-  left: 60%;
+  left: 60.9%;
 }
 #search-button:hover {
  background-color: #2d444a;
@@ -75,7 +76,7 @@
   scale: 1.3;
   position: absolute;
   top:33px;
-  left: 68.3%;
+  left: 71%;
   background-color: rgb(30, 70, 30);
 }
 #save-button:hover {
@@ -89,7 +90,7 @@
   scale: 1.3;
   position: absolute;
   top:33px;
-  left: 88%;
+  left: 85%;
 }
 #delete-all-button:hover
 {
@@ -100,7 +101,7 @@
   scale: 1.3;
   position: absolute;
   top:123px;
-  left: 60%; 
+  left: 60.9%; 
 }
 #compare-button:hover{
   background-color: #2d444a;
@@ -111,9 +112,9 @@
   border: 2px solid black ;
   color: white;
   scale: 1.3;
-  position: absolute;
-  bottom:153px;
-  left: 60.4%;
+  position: relative;
+  top: 250px;
+  left: 150%;
 }
 #delete-country-button:hover{
 background-color: rgb(255, 0, 68);
@@ -124,7 +125,7 @@ background-color: rgb(255, 0, 68);
   scale: 1.3;
   position: absolute;
   top:123px;
-  left: 88%;
+  left: 85%;
 }
 #saved-button:hover{
   background-color: #0a6379;
@@ -151,8 +152,9 @@ background-color: rgb(255, 0, 68);
 #search_input {
   scale: 1.3;
   position: absolute;
-  top:30px;
-  left: 41%;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%); 
   background-color: antiquewhite;
   border-color: #416b40;
 }
@@ -161,7 +163,8 @@ background-color: rgb(255, 0, 68);
   scale: 1.3;
   position: absolute;
   top:120px;
-  left: 41%;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: antiquewhite;
   border-color: rgb(131, 115, 95);
 }
@@ -171,7 +174,8 @@ background-color: rgb(255, 0, 68);
   scale: 1.3;
   position: absolute;
   bottom:150px;
-  left: 41%;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: hwb(7 79% 14%);
   border-color: hwb(6 9% 31%);
 }

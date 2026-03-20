@@ -20,23 +20,23 @@ function SearchBar() {
       }
 
      function handleCompare() { // ! call when clicks compare button
-      fetch(`REACT_APP_API_URL/country/${query}/${query2}`) // ! Fetch the response return from app.py's route @(/country/<name>/<name2>) then send the rsponse down
+      fetch(`${process.env.REACT_APP_API_URL}/country/${query}/${query2}`) // ! Fetch the response return from app.py's route @(/country/<name>/<name2>) then send the rsponse down
          .then(response => response.json()) // * wait for it to happen, get it, HTEN name it response and convert it to json like in the previous function send it down 
          .then(data => setCompareCountry(data)) // * recieve it and name it data THEN take its value and give it to the country compare.
 
      }
 
      function handleSave() { // ! call when clicks save button
-      fetch(`REACT_APP_API_URL/country/save/${query}`) //! send a signal to app.py's route @(/country/save/<name>) with the countries name
+      fetch(`${process.env.REACT_APP_API_URL}/country/save/${query}`) //! send a signal to app.py's route @(/country/save/<name>) with the countries name
          
      }
 
      function handleDeleteList() { // ! call when clicks delete save button
-         fetch(`REACT_APP_API_URL/delete`)
+         fetch(`${process.env.REACT_APP_API_URL}/delete`)
      }
 
      function handleDeleteCountry() {
-         fetch(`REACT_APP_API_URL/delete/${deleteCountry}`)
+         fetch(`${process.env.REACT_APP_API_URL}/delete/${deleteCountry}`)
      }
 
 
