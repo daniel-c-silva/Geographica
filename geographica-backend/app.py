@@ -20,11 +20,13 @@ cursor.execute('''
        CREATE TABLE IF NOT EXISTS countries (
                flag TEXT,
                official_name TEXT,
-               capital TEXT,
+               capital TEXT,    
                population TEXT,
                languages TEXT,
                borders TEXT,
-               name TEXT
+               name TEXT,
+               currency_name TEXT,
+               currency_symbol TEXT
                )
 ''')
 
@@ -48,6 +50,7 @@ def fetch_country_details(name): #!!!!! THIS IS THE (main) HELPER FUNCTION. IT I
 
         response = requests.get(f"https://restcountries.com/v3.1/name/{name}")
         data = response.json()[0]  #* [0] because the API returns a list of countries, we want the first one
+        currency = list(data["currencies"].values())[0]
      
         return  {
         "name": data["name"]["common"],
@@ -57,6 +60,8 @@ def fetch_country_details(name): #!!!!! THIS IS THE (main) HELPER FUNCTION. IT I
         "population": data["population"],
         "borders": data["borders"],
         "languages": list(data["languages"].values()),
+        "currency_name": currency["name"],
+        "currency_symbol": currency["symbol"]
        }
 
     except (KeyError, IndexError):
@@ -73,8 +78,9 @@ def country(name):
 
          if data is None: 
             return jsonify({"error": f"Country name not found!"})
-     
          return jsonify(data)
+    
+
     except Exception as erro:
         return jsonify({"error": str(erro)})
 
@@ -114,8 +120,8 @@ def save_country_data(name):
             cursor = conn.cursor()
 
             cursor.execute('''INSERT INTO countries (flag, official_name, capital, population, languages, borders, name)
-            VALUES (?, ?, ?, ?, ?, ?, ?) ''',    
-             (data["flag"], data["official_name"], data["capital"], data["population"], str(data["languages"]), str(data["borders"]), str(data["name"]))
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ''',    
+             (data["flag"], data["official_name"], data["capital"], data["population"], str(data["languages"]), str(data["borders"]), str(data["name"]), data["currency_name"], data["currency_symbol"])
                    )
             conn.commit()
             conn.close()
@@ -138,19 +144,21 @@ def saved_country_data():
      SELECT * FROM countries
 ''')
    
-    saved_data = cursor.fetchall()
+    saved_data = cursor.fetchall() # * cursor.fetchall() is all data from the saved.
     conn.close()
 
-    countries = []
-    for i in saved_data:
-        countries.append({
-        "flag": i[0],
+    countries = [] # * create an empty list called (countries)
+    for i in saved_data: # * for each item(data) in data
+        countries.append({ # * append/push said data into (countries)
+        "flag": i[0],  
         "official_name": i[1],
         "capital": i[2],
         "population": i[3],
         "languages": i[4],
         "borders": i[5],
-        "name": i[6]})
+        "name": i[6],
+        "currency_name": i[7],
+        "currency_symbol": i[8]})
 
     return jsonify(countries)
 

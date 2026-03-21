@@ -53,7 +53,7 @@ function SearchBar() {
            <div className="left-group">
              
              {/* * Input and button for search function*/}
-             <div>
+             <div className="input-row">
                <input 
                  className='Input'
                  id='search_input'
@@ -66,7 +66,7 @@ function SearchBar() {
              </div>
  
              {/* * Input and button for compare function*/}
-             <div>
+             <div className="input-row">
                <input 
                  id='compare_input'
                  className='Input'
@@ -96,11 +96,13 @@ function SearchBar() {
              {/* * button for save function */}
              <button className="Button" id="save-button" onClick={handleSave}>Save info</button> 
              
-             {/* * button that shows save list using if */}
-             <button className="Button" id="saved-button" onClick={() => setShowSavedList(!showSavedList)}>Saved list</button> {/* ! on click flick the current state of show saved to not show saved (it started as false)*/}
-             
-             {/* * button for delete all function */}
-             <button className="Button" id='delete-all-button' onClick={handleDeleteList}>Delete Save</button>
+             <div className="utility-buttons">
+                {/* * button that shows save list using if */}
+                <button className="Button" id="saved-button" onClick={() => setShowSavedList(!showSavedList)}>Saved list</button> {/* ! on click flick the current state of show saved to not show saved (it started as false)*/}
+                
+                {/* * button for delete all function */}
+                <button className="Button" id='delete-all-button' onClick={handleDeleteList}>Delete Save</button>
+             </div>
            </div>
          </div>
  
