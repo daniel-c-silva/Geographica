@@ -119,7 +119,7 @@ def save_country_data(name):
             conn = sqlite3.connect("countries.db")
             cursor = conn.cursor()
 
-            cursor.execute('''INSERT INTO countries (flag, official_name, capital, population, languages, borders, name)
+            cursor.execute('''INSERT INTO countries (flag, official_name, capital, population, languages, borders, name, currency_name, currency_symbol)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ''',    
              (data["flag"], data["official_name"], data["capital"], data["population"], str(data["languages"]), str(data["borders"]), str(data["name"]), data["currency_name"], data["currency_symbol"])
                    )
@@ -195,6 +195,6 @@ def delete_country_data(name):
 
 
 if __name__ == "__main__": 
-   app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False) #! this is used to run the app. host
+   app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5001)), debug=False) #! this is used to run the app. host
 
 
