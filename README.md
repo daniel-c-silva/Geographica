@@ -1,6 +1,6 @@
 # Geographica
 
-**Ditch Google, ask Geographica.**
+**Country info search, compare, and save app**
 
 ## Features
 
